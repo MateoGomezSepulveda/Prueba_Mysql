@@ -1066,6 +1066,9 @@ MariaDB [QUIROMAR]> SELECT * FROM quiromar.venta
 | 10 | 2023-09-28 |            1 |          10 |             1 |
 +----+------------+--------------+-------------+---------------+
 10 rows in set (0.001 sec)
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+1. Listar todas las ventas que se realizaron en el mes de julio de 2023.
 
 MariaDB [QUIROMAR]> SELECT * FROM Ventas WHERE MONTH(venta.fecha) = 7 AND YEAR(quiromar.venta.fecha) = 2023;
 ERROR 1146 (42S02): Table 'quiromar.ventas' doesn't exist
@@ -1080,4 +1083,69 @@ MariaDB [QUIROMAR]> SELECT * FROM Venta WHERE MONTH(quiromar.venta.fecha) = 7 AN
 |  1 | 2023-07-20 |            1 |           1 |             1 |
 +----+------------+--------------+-------------+---------------+
 1 row in set (0.001 sec)
+
+2. Seleccionar todos los empleados con sus respectivos cargos y municipios.
+MariaDB [QUIROMAR]> SELECT quiromar.empleado.nombre AS nombre,
+    -> quiromar.cargos.descripcion AS cargos,
+    -> quiromar.municipio.nombre AS municipio
+    -> FROM empleado INNER JOIN quiromar.cargos ON quiromar.empleado.id = quiromar.cargos.id
+    -> INNER JOIN quiromar.municipio ON quiromar.municipio.id = quiromar.municipio.id;
++--------------+---------------+------------------+
+| nombre       | cargos        | municipio        |
++--------------+---------------+------------------+
+| Juan Pérez   | Vendedor      | Medellín         |
+| María López  | Administrador | Medellín         |
+| Sofía García | Diseñador     | Medellín         |
+| Pedro Gómez  | Costurero     | Medellín         |
+| Ana Sánchez  | Almacenista   | Medellín         |
+| Juan Pérez   | Vendedor      | Bogotá, D.C.     |
+| María López  | Administrador | Bogotá, D.C.     |
+| Sofía García | Diseñador     | Bogotá, D.C.     |
+| Pedro Gómez  | Costurero     | Bogotá, D.C.     |
+| Ana Sánchez  | Almacenista   | Bogotá, D.C.     |
+| Juan Pérez   | Vendedor      | Zipaquirá        |
+| María López  | Administrador | Zipaquirá        |
+| Sofía García | Diseñador     | Zipaquirá        |
+| Pedro Gómez  | Costurero     | Zipaquirá        |
+| Ana Sánchez  | Almacenista   | Zipaquirá        |
+| Juan Pérez   | Vendedor      | Cali             |
+| María López  | Administrador | Cali             |
+| Sofía García | Diseñador     | Cali             |
+| Pedro Gómez  | Costurero     | Cali             |
+| Ana Sánchez  | Almacenista   | Cali             |
+| Juan Pérez   | Vendedor      | Buenos Aires     |
+| María López  | Administrador | Buenos Aires     |
+| Sofía García | Diseñador     | Buenos Aires     |
+| Pedro Gómez  | Costurero     | Buenos Aires     |
+| Ana Sánchez  | Almacenista   | Buenos Aires     |
+| Juan Pérez   | Vendedor      | Ciudad de México |
+| María López  | Administrador | Ciudad de México |
+| Sofía García | Diseñador     | Ciudad de México |
+| Pedro Gómez  | Costurero     | Ciudad de México |
+| Ana Sánchez  | Almacenista   | Ciudad de México |
+| Juan Pérez   | Vendedor      | Miami            |
+| María López  | Administrador | Miami            |
+| Sofía García | Diseñador     | Miami            |
+| Pedro Gómez  | Costurero     | Miami            |
+| Ana Sánchez  | Almacenista   | Miami            |
+| Juan Pérez   | Vendedor      | Londres          |
+| María López  | Administrador | Londres          |
+| Sofía García | Diseñador     | Londres          |
+| Pedro Gómez  | Costurero     | Londres          |
+| Ana Sánchez  | Almacenista   | Londres          |
+| Juan Pérez   | Vendedor      | París            |
+| María López  | Administrador | París            |
+| Sofía García | Diseñador     | París            |
+| Pedro Gómez  | Costurero     | París            |
+| Ana Sánchez  | Almacenista   | París            |
+| Juan Pérez   | Vendedor      | Tokio            |
+| María López  | Administrador | Tokio            |
+| Sofía García | Diseñador     | Tokio            |
+| Pedro Gómez  | Costurero     | Tokio            |
+| Ana Sánchez  | Almacenista   | Tokio            |
++--------------+---------------+------------------+
+50 rows in set (0.001 sec)
+
+3.Obtener la lista de todas las ventas con la información de los clientes y la forma de pago.
+
 
