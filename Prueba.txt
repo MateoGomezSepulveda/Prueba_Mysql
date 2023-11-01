@@ -1,0 +1,1083 @@
+
+MariaDB [(none)]> CREATE DATABASE QUIROMAR;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| base1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| prueba_base        |
+| quiromar           |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> USE QUIROMAR
+Database changed
+MariaDB [QUIROMAR]> CREATE TABLE Cargos (
+    -> descripccion VARCHAR(100),
+    -> sueldo_base VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.018 sec)
+
+MariaDB [QUIROMAR]> SHOW TABLES;
++--------------------+
+| Tables_in_quiromar |
++--------------------+
+| cargos             |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Color(
+    -> descripccion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.012 sec)
+
+MariaDB [QUIROMAR]> SHOW TABLES;
++--------------------+
+| Tables_in_quiromar |
++--------------------+
+| cargos             |
+| color              |
++--------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Forma_pago(
+    -> descripccion
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 2
+MariaDB [QUIROMAR]> CREATE TABLE Forma_pago(
+    -> descripccion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [QUIROMAR]> SHOW TABLES;
++--------------------+
+| Tables_in_quiromar |
++--------------------+
+| cargos             |
+| color              |
+| forma_pago         |
++--------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Genero(
+    -> descripccion(100)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(100)
+)' at line 2
+MariaDB [QUIROMAR]> CREATE TABLE Genero(
+    -> descripccion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Insumo(
+    -> nombre VARCHAR(100),
+    -> valor_unit INT,
+    -> stock_min INT,
+    -> stock_max INT
+    -> );
+Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Pais(
+    -> nombre VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.013 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Talla(
+    -> descripccion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.012 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Tipo_estado(
+    -> descripccion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Tipo_persona(
+    -> nombre VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.010 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Tipo_proteccion(
+    -> descripccion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.012 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Departamento(
+    -> nombre VARCHAR(100),
+    -> IdPaisFK INT
+    -> );
+Query OK, 0 rows affected (0.014 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Municipio(
+    -> nombre VARCHAR(100),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 2
+MariaDB [QUIROMAR]> EXIT;
+Bye
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 59
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| base1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| prueba_base        |
+| quiromar           |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> DROP DATABASE quiromar;
+Query OK, 11 rows affected (0.074 sec)
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| base1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| prueba_base        |
+| test               |
++--------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [(none)]> CREATE DATABASE Quiromar;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| base1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| prueba_base        |
+| quiromar           |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> USE QUIROMAR;
+Database changed
+MariaDB [QUIROMAR]> CREATE DATABASE Cargos(
+    -> id INT AUTO_INCREMET PRIMARY KEY,
+    -> descripcion VARCHAR(100),
+    -> sueldo_base VARCHAR(100)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(
+id INT AUTO_INCREMET PRIMARY KEY,
+descripcion VARCHAR(100),
+sueldo_base VAR...' at line 1
+MariaDB [QUIROMAR]> CREATE DATABASE Cargos(
+    -> id INT AUTO_INCREMET PRIMARY KEY,
+    -> descripcion VARCHAR(100),
+    -> sueldo_base INT
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(
+id INT AUTO_INCREMET PRIMARY KEY,
+descripcion VARCHAR(100),
+sueldo_base INT
+)' at line 1
+MariaDB [QUIROMAR]> CREATE DATABASE Cargos(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> sueldo_base INT
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(
+id INT AUTO_INCREMENT PRIMARY KEY,
+sueldo_base INT
+)' at line 1
+MariaDB [QUIROMAR]> CREATE TABLE Cargos(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> sueldo_base INT
+    -> );
+Query OK, 0 rows affected (0.014 sec)
+
+MariaDB [QUIROMAR]> SHOW TABLES;
++--------------------+
+| Tables_in_quiromar |
++--------------------+
+| cargos             |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO cargos (descripcion, sueldo_base)
+    -> VALUES
+    -> ('Vendedor', 1500000),
+    -> ('Administrador', 3000000),
+    -> ('Diseñador', 2500000),
+    -> ('Costurero', 1000000),
+    -> ('Almacenista', 800000);
+ERROR 1054 (42S22): Unknown column 'descripcion' in 'field list'
+MariaDB [QUIROMAR]> DROP TABLE Cargos;
+Query OK, 0 rows affected (0.008 sec)
+
+MariaDB [QUIROMAR]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| base1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| prueba_base        |
+| quiromar           |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [QUIROMAR]> SHOW TABLES;
+Empty set (0.001 sec)
+
+MariaDB [QUIROMAR]> SHOW TABLES;
+Empty set (0.001 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Cargos(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> descripcion VARCHAR(100),
+    -> sueldo_base INT
+    -> );
+Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO cargos (descripcion, sueldo_base)
+    -> VALUES
+    -> ('Vendedor', 1500000),
+    -> ('Administrador', 3000000),
+    -> ('Diseñador', 2500000),
+    -> ('Costurero', 1000000),
+    -> ('Almacenista', 800000);
+Query OK, 5 rows affected (0.003 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Color(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> descripcion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.014 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO color (descripcion)
+    -> VALUES
+    -> ('Negro'),
+    -> ('Blanco'),
+    -> ('Rojo'),
+    -> ('Verde'),
+    -> ('Azul'),
+    -> ('Amarillo'),
+    -> ('Rosa'),
+    -> ('Morado'),
+    -> ('Gris'),
+    -> ('Beige');
+Query OK, 10 rows affected (0.004 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Forma_pago(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> descripcion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.014 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO forma_pago (descripcion)
+    -> VALUES
+    -> ('Efectivo'),
+    -> ('Tarjeta de crédito'),
+    -> ('Tarjeta de débito'),
+    -> ('Transferencia bancaria'),
+    -> ('Paypal');
+Query OK, 5 rows affected (0.003 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Genero(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> descripcion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.012 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO genero (descripcion)
+    -> VALUES
+    -> ('Masculino'),
+    -> ('Femenino'),
+    -> ('Unisex');
+Query OK, 3 rows affected (0.003 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Insumo(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100),
+    -> valor_unit INT,
+    -> stock_min INT,
+    -> stock_max INT
+    -> );
+Query OK, 0 rows affected (0.013 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO insumo (nombre, valor_unit, stock_min, stock_max)
+    -> VALUES
+    -> ('Tela de algodón', 10000, 100, 1000),
+    -> ('Tela de poliéster', 20000, 50, 500),
+    -> ('Hilo', 5000, 20, 200),
+    -> ('Botones', 2000, 10, 100),
+    -> ('Cierres', 3000, 5, 50);
+Query OK, 5 rows affected (0.002 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Pais(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.010 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO pais (nombre)
+    -> VALUES
+    -> ('Colombia'),
+    -> ('México'),
+    -> ('Estados Unidos'),
+    -> ('España'),
+    -> ('China'),
+    -> ('Brasil'),
+    -> ('Argentina'),
+    -> ('India'),
+    -> ('Francia'),
+    -> ('Inglaterra');
+Query OK, 10 rows affected (0.003 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Talla(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> descripcion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.013 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO talla (descripcion)
+    -> VALUES
+    -> ('XS - Extra pequeña'),
+    -> ('S - Pequeña'),
+    -> ('M - Mediana'),
+    -> ('L - Grande'),
+    -> ('XL - Extra grande'),
+    -> ('XXL - Extra extra grande');
+Query OK, 6 rows affected (0.004 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Tipo_estado(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> descripcion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.016 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO tipo_estado (descripcion)
+    -> VALUES
+    -> ('Nuevo'),
+    -> ('En proceso'),
+    -> ('Listo para enviar'),
+    -> ('Enviado'),
+    -> ('Entregado');
+Query OK, 5 rows affected (0.003 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Tipo_persona(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.018 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO tipo_persona (Nombre)
+    -> VALUES
+    -> ('Cliente'),
+    -> ('Proveedor'),
+    -> ('Empleado');
+Query OK, 3 rows affected (0.004 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Tipo_proteccion(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> descripcion VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.013 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO tipo_proteccion (descripcion)
+    -> VALUES
+    -> ('Protección contra el sol'),
+    -> ('Protección contra el agua'),
+    -> ('Protección contra el frío'),
+    -> ('Protección contra el viento'),
+    -> ('Protección contra los insectos');
+Query OK, 5 rows affected (0.003 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Departamento(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100),
+    -> IdPaisFK INT,
+    -> FOREING KEY (IdPaisFK) REFERENCES Pais(id)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'KEY (IdPaisFK) REFERENCES Pais(id)
+)' at line 5
+MariaDB [QUIROMAR]> show tables;
++--------------------+
+| Tables_in_quiromar |
++--------------------+
+| cargos             |
+| color              |
+| forma_pago         |
+| genero             |
+| insumo             |
+| pais               |
+| talla              |
+| tipo_estado        |
+| tipo_persona       |
+| tipo_proteccion    |
++--------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Departamento(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     -> nombre VARCHAR(100),
+    ->     -> IdPaisFK INT,
+    ->     -> FOREING KEY (IdPaisFK) REFERENCES Pais(id)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-> nombre VARCHAR(100),
+    -> IdPaisFK INT,
+    -> FOREING KEY (IdPaisFK) RE...' at line 3
+MariaDB [QUIROMAR]> CREATE TABLE Departamento(
+    -> nombre VARCHAR(100),
+    -> IdPaisFK INT,
+    -> FOREING KEY (IdPaisFK) REFERENCES pais(id)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'KEY (IdPaisFK) REFERENCES pais(id)
+)' at line 4
+MariaDB [QUIROMAR]> CREATE TABLE Departamento(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100),
+    -> IdPaisFK INT,
+    -> FOREIGN KEY (IdPaisFK) REFERENCES Pais(id)
+    -> );
+Query OK, 0 rows affected (0.041 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO departamento (nombre, IdPaisFk)
+    -> VALUES
+    -> ('Antioquia', 1),
+    -> ('Bogotá', 1),
+    -> ('Cundinamarca', 1),
+    -> ('Valle del Cauca', 1),
+    -> ('Buenos Aires', 2),
+    -> ('Ciudad de México', 3),
+    -> ('Miami', 4),
+    -> ('Londres', 5),
+    -> ('París', 6),
+    -> ('Tokio', 7);
+Query OK, 10 rows affected (0.006 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Municipio(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100),
+    -> IdDepartamentoFK INT,
+    -> FOREING KEY (IdDepartamentoFK) REFERENCES Departamento(id)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'KEY (IdDepartamentoFK) REFERENCES Departamento(id)
+)' at line 5
+MariaDB [QUIROMAR]> CREATE TABLE Municipio(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100),
+    -> IdDepartamentoFK INT,
+    -> FOREIGN KEY (IdDepartamentoFK) REFERENCES Departamento(id)
+    -> );
+Query OK, 0 rows affected (0.044 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO municipio (nombre, IdDepartamentoFk)
+    -> VALUES
+    -> ('Medellín', 1),
+    -> ('Bogotá, D.C.', 2),
+    -> ('Zipaquirá', 2),
+    -> ('Cali', 4),
+    -> ('Buenos Aires', 5),
+    -> ('Ciudad de México', 6),
+    -> ('Miami', 7),
+    -> ('Londres', 8),
+    -> ('París', 9),
+    -> ('Tokio', 10);
+Query OK, 10 rows affected (0.004 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Estado(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> descripcion VARCHAR(100),
+    -> IdTipoEstadoFK INT,
+    -> FOREIGN KEY (IdTipoEstadoFK) REFERENCES Tipo_estado(id)
+    -> );
+Query OK, 0 rows affected (0.045 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO estado (descripcion, IdTipoEstadoFk)
+    -> VALUES
+    -> ('Pendiente', 1),
+    -> ('En proceso', 2),
+    -> ('Listo para enviar', 3),
+    -> ('Enviado', 4),
+    -> ('Entregado', 5);
+Query OK, 5 rows affected (0.004 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Cliente(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100),
+    -> IdTipoPersonaFK INT,
+    -> fechaRegistro DATE,
+    -> IdMunicipioFK INT,
+    -> FOREIGN KEY (IdTipoPersonaFK) REFERENCES tipo_persona(id),
+    -> FOREIGN KEY (IdMunicipioFK) REFERENCES Municipio(id),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 9
+MariaDB [QUIROMAR]> CREATE TABLE Cliente(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100),
+    -> IdTipoPersonaFK INT,
+    -> fechaRegistro DATE,
+    -> IdMunicipioFK INT,
+    -> FOREIGN KEY (IdTipoPersonaFK) REFERENCES tipo_persona(id),
+    -> FOREIGN KEY (IdMunicipioFK) REFERENCES Municipio(id)
+    -> );
+Query OK, 0 rows affected (0.041 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO cliente (nombre, IdCliente, IdTipoPersonaFk, fechaRegistro, IdMunicipioFk)
+    -> VALUES
+    -> ('Juan Pérez', '123456789', 1, '2023-07-20', 1),
+    -> ('María López', '987654321', 2, '2023-08-03', 2),
+    -> ('Sofía García', '321654987', 3, '2023-08-10', 3),
+    -> ('Pedro Gómez', '789456123', 1, '2023-08-17', 4),
+    -> ('Ana Sánchez', '234567891', 2, '2023-08-24', 5),
+    -> ('Carlos Hernández', '654987321', 3, '2023-08-31', 6),
+    -> ('Luisa Rodríguez', '9876543210', 1, '2023-09-07', 7),
+    -> ('Daniela Castillo', '1098765432', 2, '2023-09-14', 8),
+    -> ('Andrés Morales', '3210987654', 3, '2023-09-21', 9),
+    -> ('Camila Gutiérrez', '7654321098', 1, '2023-09-28', 10);
+ERROR 1054 (42S22): Unknown column 'IdCliente' in 'field list'
+MariaDB [QUIROMAR]> INSERT INTO cliente (nombre, IdTipoPersonaFk, fechaRegistro, IdMunicipioFk)
+    -> VALUES
+    -> ('Juan Pérez', 1, '2023-07-20', 1),
+    -> ('María López', 2, '2023-08-03', 2),
+    -> ('Sofía García', 3, '2023-08-10', 3),
+    -> ('Pedro Gómez', 1, '2023-08-17', 4),
+    -> ('Ana Sánchez', 2, '2023-08-24', 5),
+    -> ('Carlos Hernández', 3, '2023-08-31', 6),
+    -> ('Luisa Rodríguez',  1, '2023-09-07', 7),
+    -> ('Daniela Castillo',  2, '2023-09-14', 8),
+    -> ('Andrés Morales',  3, '2023-09-21', 9),
+    -> ('Camila Gutiérrez',  1, '2023-09-28', 10);
+Query OK, 10 rows affected (0.005 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Empleado(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100),
+    -> IdCargoFK INT,
+    -> fecha_ingreso DATE,
+    -> IdMunicipioFK INT,
+    -> FOREIGN KEY (IdCargoFK) REFERENCES Cargos(id),
+    -> FOREIGN KEY (IdMunicipioFK) REFERENCES Municipio(id)
+    -> );
+Query OK, 0 rows affected (0.027 sec)
+
+MariaDB [QUIROMAR]> show tables;
++--------------------+
+| Tables_in_quiromar |
++--------------------+
+| cargos             |
+| cliente            |
+| color              |
+| departamento       |
+| empleado           |
+| estado             |
+| forma_pago         |
+| genero             |
+| insumo             |
+| municipio          |
+| pais               |
+| talla              |
+| tipo_estado        |
+| tipo_persona       |
+| tipo_proteccion    |
++--------------------+
+15 rows in set (0.001 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO empleado (nombre, IdCargoFk, fecha_ingreso, IdMunicipioFk)
+    -> VALUES
+    -> ('Juan Pérez', 1, '2023-07-20', 1),
+    -> ('María López', 2, '2023-08-03', 2),
+    -> ('Sofía García', 3, '2023-08-10', 3),
+    -> ('Pedro Gómez', 1, '2023-08-17', 4),
+    -> ('Ana Sánchez', 2, '2023-08-24', 5),
+    -> ('Carlos Hernández', 3, '2023-08-31', 6),
+    -> ('Luisa Rodríguez', 1, '2023-09-07', 7),
+    -> ('Daniela Castillo', 2, '2023-09-14', 8),
+    -> ('Andrés Morales', 3, '2023-09-21', 9),
+    -> ('Camila Gutiérrez', 1, '2023-09-28', 10);
+Query OK, 10 rows affected (0.006 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Venta(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> fecha DATE,
+    -> IdEmpleadoFK INT,
+    -> IdClienteFK INT,
+    -> IdFormaPagoFK INT,
+    -> FOREIGN KEY (IdEmpleadoFK) REFERENCES Empleado(id),
+    -> FOREIGN KEY (IdClienteFK) REFERENCES Cliente(id),
+    -> FOREIGN KEY (IdFormaPagoFK) REFERENCES Forma_pago(id)
+    -> );
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO venta (Fecha, IdEmpleadoFk, IdClienteFk, IdFormaPagoFk)
+    -> VALUES
+    -> ('2023-07-20', 1, 1, 1),
+    -> ('2023-08-03', 2, 2, 2),
+    -> ('2023-08-10', 3, 3, 3),
+    -> ('2023-08-17', 1, 4, 1),
+    -> ('2023-08-24', 2, 5, 2),
+    -> ('2023-08-31', 3, 6, 3),
+    -> ('2023-09-07', 1, 7, 1),
+    -> ('2023-09-14', 2, 8, 2),
+    -> ('2023-09-21', 3, 9, 3),
+    -> ('2023-09-28', 1, 10, 1);
+Query OK, 10 rows affected (0.007 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Prenda(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100),
+    -> valorUnitCop INT,
+    -> IdEstadoFK INT,
+    -> IdTipoProteccionFK INT,
+    -> IdGeneroFK INT,
+    -> Codigo VARCHAR(50),
+    -> FOREIGN KEY (IdEstadoFK) REFERENCES Estado(id),
+    -> FOREIGN KEY (IdTipoProteccionFK) REFERENCES Tipo_proteccion(id),
+    -> FOREIGN KEY (IdGeneroFK) REFERENCES Genero(id)
+    -> );
+Query OK, 0 rows affected (0.021 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO prenda (Nombre, ValorUnitCop, ValorUnitUsd, IdEstadoFk, IdTipoProteccion, IdGeneroFk, Codigo)
+    -> VALUES
+    -> ('Camiseta de algodón manga corta', 20000, 5, 1, 1, 1, 'PR001'),
+    -> ('Camisa de manga larga', 30000, 7.5, 1, 1, 1, 'PR002'),
+    -> ('Pantalón de mezclilla', 40000, 10, 1, 1, 1, 'PR003'),
+    -> ('Vestido de algodón', 50000, 12.5, 1, 2, 1, 'PR004'),
+    -> ('Zapatos casuales', 60000, 15, 1, 1, 1, 'PR005'),
+    -> ('Gafas de sol', 10000, 2.5, 1, 1, 1, 'PR006'),
+    -> ('Chaqueta de cuero', 150000, 37.5, 1, 1, 1, 'PR007'),
+    -> ('Traje de baño', 50000, 12.5, 1, 1, 1, 'PR008'),
+    -> ('Gorra', 10000, 2.5, 1, 1, 1, 'PR009'),
+    -> ('Medias', 5000, 1.25, 1, 1, 1, 'PR010');
+ERROR 1054 (42S22): Unknown column 'ValorUnitUsd' in 'field list'
+MariaDB [QUIROMAR]> DROP TABLE Prenda;
+Query OK, 0 rows affected (0.015 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Prenda(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR(100),
+    -> valorUnitCop INT,
+    -> valorUnitUsd INT,
+    -> IdEstadoFK INT,
+    -> IdTipoProteccionFK INT,
+    -> IdGeneroFK INT,
+    -> Codigo VARCHAR(50),
+    -> FOREIGN KEY (IdEstadoFK) REFERENCES Estado(id),
+    -> FOREIGN KEY (IdTipoProteccionFK) REFERENCES Tipo_proteccion(id),
+    -> FOREIGN KEY (IdGeneroFK) REFERENCES Genero(id)
+    -> );
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO prenda (Nombre, ValorUnitCop, ValorUnitUsd, IdEstadoFk, IdTipoProteccion, IdGeneroFk, Codigo)
+    -> VALUES
+    -> ('Camiseta de algodón manga corta', 20000, 5, 1, 1, 1, 'PR001'),
+    -> ('Camisa de manga larga', 30000, 7.5, 1, 1, 1, 'PR002'),
+    -> ('Pantalón de mezclilla', 40000, 10, 1, 1, 1, 'PR003'),
+    -> ('Vestido de algodón', 50000, 12.5, 1, 2, 1, 'PR004'),
+    -> ('Zapatos casuales', 60000, 15, 1, 1, 1, 'PR005'),
+    -> ('Gafas de sol', 10000, 2.5, 1, 1, 1, 'PR006'),
+    -> ('Chaqueta de cuero', 150000, 37.5, 1, 1, 1, 'PR007'),
+    -> ('Traje de baño', 50000, 12.5, 1, 1, 1, 'PR008'),
+    -> ('Gorra', 10000, 2.5, 1, 1, 1, 'PR009'),
+    -> ('Medias', 5000, 1.25, 1, 1, 1, 'PR010');
+ERROR 1054 (42S22): Unknown column 'IdTipoProteccion' in 'field list'
+MariaDB [QUIROMAR]> INSERT INTO prenda (Nombre, ValorUnitCop, ValorUnitUsd, IdEstadoFk, IdTipoProteccion, IdGeneroFk, Codigo)
+    -> VALUES
+    -> ('Camiseta de algodón manga corta', 20000, 5, 1, 1, 1, 'PR001'),
+    -> ('Camisa de manga larga', 30000, 7.5, 1, 1, 1, 'PR002'),
+    -> ('Pantalón de mezclilla', 40000, 10, 1, 1, 1, 'PR003'),
+    -> ('Vestido de algodón', 50000, 12.5, 1, 2, 1, 'PR004'),
+    -> ('Zapatos casuales', 60000, 15, 1, 1, 1, 'PR005'),
+    -> ('Gafas de sol', 10000, 2.5, 1, 1, 1, 'PR006'),
+    -> ('Chaqueta de cuero', 150000, 37.5, 1, 1, 1, 'PR007'),
+    -> ('Traje de baño', 50000, 12.5, 1, 1, 1, 'PR008'),
+    -> ('Gorra', 10000, 2.5, 1, 1, 1, 'PR009'),
+    -> ('Gorra', 10000, 2.5, 1, 1, 1, 'PR009')^Z^Z;,
+ERROR 1054 (42S22): Unknown column 'IdTipoProteccion' in 'field list'
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [QUIROMAR]> INSERT INTO prenda (Nombre, ValorUnitCop, ValorUnitUsd, IdEstadoFk, IdTipoProteccionFK, IdGeneroFk, Codigo)
+    -> VALUES
+    -> ('Camiseta de algodón manga corta', 20000, 5, 1, 1, 1, 'PR001'),
+    -> ('Camisa de manga larga', 30000, 7.5, 1, 1, 1, 'PR002'),
+    -> ('Pantalón de mezclilla', 40000, 10, 1, 1, 1, 'PR003'),
+    -> ('Vestido de algodón', 50000, 12.5, 1, 2, 1, 'PR004'),
+    -> ('Zapatos casuales', 60000, 15, 1, 1, 1, 'PR005'),
+    -> ('Gafas de sol', 10000, 2.5, 1, 1, 1, 'PR006'),
+    -> ('Chaqueta de cuero', 150000, 37.5, 1, 1, 1, 'PR007'),
+    -> ('Traje de baño', 50000, 12.5, 1, 1, 1, 'PR008'),
+    -> ('Gorra', 10000, 2.5, 1, 1, 1, 'PR009'),
+    -> ('Medias', 5000, 1.25, 1, 1, 1, 'PR010');
+Query OK, 10 rows affected (0.006 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Inventario(
+    -> codInv VARCHAR(50),
+    -> IdPrendaFK INT,
+    -> valorVtaCop INT,
+    -> valorVtaUsd INT,
+    -> FOREIGN KEY (IdPrendaFK) REFERENCES Prenda(id)
+    -> );
+Query OK, 0 rows affected (0.028 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO inventario (CodInv, IdPrendaFk, ValorVtaCop, ValorVtaUsd)
+    -> VALUES
+    -> ('INV001', 1, 25000, 6.25),
+    -> ('INV002', 2, 37500, 9.375),
+    -> ('INV003', 3, 50000, 12.5),
+    -> ('INV004', 4, 62500, 15.625),
+    -> ('INV005', 5, 75000, 18.75),
+    -> ('INV006', 6, 12500, 3.125),
+    -> ('INV007', 7, 187500, 46.875),
+    -> ('INV008', 8, 62500, 15.625),
+    -> ('INV009', 9, 12500, 3.125),
+    -> ('INV010', 10, 5000, 1.25);
+Query OK, 10 rows affected (0.004 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> show tables;
++--------------------+
+| Tables_in_quiromar |
++--------------------+
+| cargos             |
+| cliente            |
+| color              |
+| departamento       |
+| empleado           |
+| estado             |
+| forma_pago         |
+| genero             |
+| insumo             |
+| inventario         |
+| municipio          |
+| pais               |
+| prenda             |
+| talla              |
+| tipo_estado        |
+| tipo_persona       |
+| tipo_proteccion    |
+| venta              |
++--------------------+
+18 rows in set (0.001 sec)
+
+MariaDB [QUIROMAR]> DROP TABLE Inventario;
+Query OK, 0 rows affected (0.007 sec)
+
+MariaDB [QUIROMAR]> SHOW TABLES;
++--------------------+
+| Tables_in_quiromar |
++--------------------+
+| cargos             |
+| cliente            |
+| color              |
+| departamento       |
+| empleado           |
+| estado             |
+| forma_pago         |
+| genero             |
+| insumo             |
+| municipio          |
+| pais               |
+| prenda             |
+| talla              |
+| tipo_estado        |
+| tipo_persona       |
+| tipo_proteccion    |
+| venta              |
++--------------------+
+17 rows in set (0.001 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Inventario(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> codInv VARCHAR(50),
+    -> IdPrendaFK INT,
+    -> valorVtaCop INT,
+    -> valorVtaUsd INT,
+    -> FOREIGN KEY (IdPrendaFK) REFERENCES Prenda(id)
+    -> );
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO inventario (CodInv, IdPrendaFk, ValorVtaCop, ValorVtaUsd)
+    -> VALUES
+    -> ('INV001', 1, 25000, 6.25),
+    -> ('INV002', 2, 37500, 9.375),
+    -> ('INV003', 3, 50000, 12.5),
+    -> ('INV004', 4, 62500, 15.625),
+    -> ('INV005', 5, 75000, 18.75),
+    -> ('INV006', 6, 12500, 3.125),
+    -> ('INV007', 7, 187500, 46.875),
+    -> ('INV008', 8, 62500, 15.625),
+    -> ('INV009', 9, 12500, 3.125),
+    -> ('INV010', 10, 5000, 1.25);
+Query OK, 10 rows affected (0.005 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> drop table inventario;
+Query OK, 0 rows affected (0.006 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Inventario(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> codInv VARCHAR(50),
+    -> IdPrendaFK INT,
+    -> valorVtaCop INT,
+    -> valorVtaUsd BOOLEAN,
+    -> FOREIGN KEY (IdPrendaFK) REFERENCES Prenda(id)
+    -> );
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO inventario (CodInv, IdPrendaFk, ValorVtaCop, ValorVtaUsd)
+    -> VALUES
+    -> ('INV001', 1, 25000, 6.25),
+    -> ('INV002', 2, 37500, 9.375),
+    -> ('INV003', 3, 50000, 12.5),
+    -> ('INV004', 4, 62500, 15.625),
+    -> ('INV005', 5, 75000, 18.75),
+    -> ('INV006', 6, 12500, 3.125),
+    -> ('INV007', 7, 187500, 46.875),
+    -> ('INV008', 8, 62500, 15.625),
+    -> ('INV009', 9, 12500, 3.125),
+    -> ('INV010', 10, 5000, 1.25);
+Query OK, 10 rows affected (0.005 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> drop table inventario
+    -> ;
+Query OK, 0 rows affected (0.006 sec)
+
+MariaDB [QUIROMAR]> CREATE TABLE Inventario(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> codInv VARCHAR(50),
+    -> IdPrendaFK INT,
+    -> valorVtaCop INT,
+    -> valorVtaUsd FLOAT,
+    -> FOREIGN KEY (IdPrendaFK) REFERENCES Prenda(id)
+    -> );
+Query OK, 0 rows affected (0.027 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO inventario (CodInv, IdPrendaFk, ValorVtaCop, ValorVtaUsd)
+    -> VALUES
+    -> ('INV001', 1, 25000, 6.25),
+    -> ('INV002', 2, 37500, 9.375),
+    -> ('INV003', 3, 50000, 12.5),
+    -> ('INV004', 4, 62500, 15.625),
+    -> ('INV005', 5, 75000, 18.75),
+    -> ('INV006', 6, 12500, 3.125),
+    -> ('INV007', 7, 187500, 46.875),
+    -> ('INV008', 8, 62500, 15.625),
+    -> ('INV009', 9, 12500, 3.125),
+    -> ('INV010', 10, 5000, 1.25);
+Query OK, 10 rows affected (0.005 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Detalle_venta(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> IdVentaFK INT,
+    -> IdTallaFK INT,
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 4
+MariaDB [QUIROMAR]> CREATE TABLE Detalle_venta(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> IdVentaFK INT,
+    -> IdTallaFK INT,
+    ->
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 4
+MariaDB [QUIROMAR]> CREATE TABLE Detalle_venta(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> IdVentaFK INT,
+    -> IdProductoFK INT,
+    -> IdTallaFK INT,
+    -> cantidad INT,
+    -> valor_unit VARCHAR(100),
+    -> FOREIGN KEY (IdVentaFK) REFERENCES Venta(id),
+    -> FOREIGN KEY (IdProductoFK) REFERENCES Producto(id)
+    -> );
+ERROR 1005 (HY000): Can't create table `quiromar`.`detalle_venta` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [QUIROMAR]> CREATE TABLE Detalle_venta(
+    -> IdVentaFK INT,
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> IdProductoFK INT,
+    -> IdTallaFK INT,
+    -> cantidad INT,
+    -> valor_unit VARCHAR(100),
+    -> FOREIGN KEY (IdVentaFK) REFERENCES Venta(id),
+    -> FOREIGN KEY (IdProductoFK) REFERENCES Producto(id),
+    -> FOREIGN KEY (IdTallaFK) REFERENCES Talla(id)
+    -> );
+ERROR 1005 (HY000): Can't create table `quiromar`.`detalle_venta` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [QUIROMAR]> CREATE TABLE Detalle_venta(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> IdVentaFK INT,
+    -> IdProductoFK INT,
+    -> IdTallaFK INT,
+    -> cantidad INT,;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 6
+MariaDB [QUIROMAR]> CREATE TABLE Detalle_venta(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> IdVentaFK INT,
+    -> IdTallaFK INT,
+    -> cantidad INT,;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 5
+MariaDB [QUIROMAR]> CREATE TABLE Detalle_venta(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> IdVentaFK INT,
+    -> IdTallaFK INT,
+    -> cantidad INT,
+    -> valor_unit VARCHAR(100),
+    -> FOREIGN KEY (IdVentaFK) REFERENCES Venta(id),
+    -> FOREIGN KEY (IdTallaFK) REFERENCES Talla(id)
+    -> );
+Query OK, 0 rows affected (0.029 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO detalle_venta (IdVentaFk, IdTallaFk, cantidad, valor_unit)
+    -> VALUES
+    -> (1, 1, 2, 25000),
+    -> (2, 2, 1, 37500),
+    -> (3, 3, 3, 50000),
+    -> (4, 4, 4, 62500),
+    -> (5, 5, 5, 75000),
+    -> (6, 6, 6, 12500);
+Query OK, 6 rows affected (0.003 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> CREATE TABLE Orden(
+    -> fecha DATE,
+    -> IdEmpleadoFK INT,
+    -> IdClienteFK INT,
+    -> IdEstadoFK INT,
+    -> FOREIGN KEY (IdEmpleadoFK) REFERENCES Empleado(id),
+    -> FOREIGN KEY (IdClienteFK) REFERENCES Cliente(id),
+    -> FOREIGN KEY (IdEstadoFK) REFERENCES Estado(id)
+    -> );
+Query OK, 0 rows affected (0.022 sec)
+
+MariaDB [QUIROMAR]> INSERT INTO orden (fecha, IdEmpleadoFk, IdClienteFk, IdEstadoFk)
+    -> VALUES
+    -> ('2023-07-20', 1, 1, 1),
+    -> ('2023-08-03', 2, 2, 2),
+    -> ('2023-08-10', 3, 3, 3),
+    -> ('2023-08-17', 1, 4, 4),
+    -> ('2023-08-24', 2, 5, 5);
+Query OK, 5 rows affected (0.007 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [QUIROMAR]> SELECT * FROM Ventas WHERE MONTH(venta.fecha) = 7 AND YEAR(venta.fecha) = 2023;
+ERROR 1146 (42S02): Table 'quiromar.ventas' doesn't exist
+MariaDB [QUIROMAR]> SELECT * FROM Ventas
+    -> ;
+ERROR 1146 (42S02): Table 'quiromar.ventas' doesn't exist
+MariaDB [QUIROMAR]> cd ..
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'cd ..' at line 1
+MariaDB [QUIROMAR]> EXIT;
+Bye
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 163
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SELECT * FORM quiromar.ventas
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FORM quiromar.ventas' at line 1
+MariaDB [(none)]> SHOW DATABASES
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| base1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| prueba_base        |
+| quiromar           |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> SHOW DATABASE QUIROMAR;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DATABASE QUIROMAR' at line 1
+MariaDB [(none)]> SHOW DATABASE quiromar;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DATABASE quiromar' at line 1
+MariaDB [(none)]> USE QUIROMAR
+Database changed
+MariaDB [QUIROMAR]> SELECT * FROM quiromar.venta
+    -> ;
++----+------------+--------------+-------------+---------------+
+| id | fecha      | IdEmpleadoFK | IdClienteFK | IdFormaPagoFK |
++----+------------+--------------+-------------+---------------+
+|  1 | 2023-07-20 |            1 |           1 |             1 |
+|  2 | 2023-08-03 |            2 |           2 |             2 |
+|  3 | 2023-08-10 |            3 |           3 |             3 |
+|  4 | 2023-08-17 |            1 |           4 |             1 |
+|  5 | 2023-08-24 |            2 |           5 |             2 |
+|  6 | 2023-08-31 |            3 |           6 |             3 |
+|  7 | 2023-09-07 |            1 |           7 |             1 |
+|  8 | 2023-09-14 |            2 |           8 |             2 |
+|  9 | 2023-09-21 |            3 |           9 |             3 |
+| 10 | 2023-09-28 |            1 |          10 |             1 |
++----+------------+--------------+-------------+---------------+
+10 rows in set (0.001 sec)
+
+MariaDB [QUIROMAR]> SELECT * FROM Ventas WHERE MONTH(venta.fecha) = 7 AND YEAR(quiromar.venta.fecha) = 2023;
+ERROR 1146 (42S02): Table 'quiromar.ventas' doesn't exist
+MariaDB [QUIROMAR]> SELECT * FROM Ventas WHERE MONTH(quiromar.venta.fecha) = 7 AND YEAR(quiromar.venta.fecha) = 2023;
+ERROR 1146 (42S02): Table 'quiromar.ventas' doesn't exist
+MariaDB [QUIROMAR]> SELECT * FROM Ventas WHERE MONTH(quiromar.venta) = 7 AND YEAR(quiromar.venta) = 2023;
+ERROR 1146 (42S02): Table 'quiromar.ventas' doesn't exist
+MariaDB [QUIROMAR]> SELECT * FROM Venta WHERE MONTH(quiromar.venta.fecha) = 7 AND YEAR(quiromar.venta.fecha) = 2023;
++----+------------+--------------+-------------+---------------+
+| id | fecha      | IdEmpleadoFK | IdClienteFK | IdFormaPagoFK |
++----+------------+--------------+-------------+---------------+
+|  1 | 2023-07-20 |            1 |           1 |             1 |
++----+------------+--------------+-------------+---------------+
+1 row in set (0.001 sec)
+
